@@ -1,4 +1,4 @@
-# GPMP — Graduation Project Management Platform
+# GPMP - Graduation Project Management Platform
 
 GPMP is a web application for **Al-Yamamah University** that brings the whole graduation project
 into one place. Students, supervisors, examiners and administrators use it from the first group
@@ -26,22 +26,22 @@ Socket.IO) and **MySQL/MariaDB** (XAMPP).
 
 ## 1. Features
 
-- **Accounts and roles** — four roles (Student, Supervisor, Examiner, Administrator), secure sign-in
+- **Accounts and roles** - four roles (Student, Supervisor, Examiner, Administrator), secure sign-in
   with an account lock after wrong passwords, password reset by email and user management.
-- **Groups and projects** — groups choose an available supervisor, create their project and submit
+- **Groups and projects** - groups choose an available supervisor, create their project and submit
   a proposal that is reviewed by the supervisor and then the examiner.
-- **Tasks and milestones** — plan tasks, follow the progress, submit work (files or a link) and
+- **Tasks and milestones** - plan tasks, follow the progress, submit work (files or a link) and
   receive structured feedback.
-- **Documents** — upload group documents with versions; files are private and can only be
+- **Documents** - upload group documents with versions; files are private and can only be
   downloaded by the people who are allowed to see them.
-- **Calendar and attendance** — meetings, deadlines, presentations and academic dates with conflict
+- **Calendar and attendance** - meetings, deadlines, presentations and academic dates with conflict
   warnings and reminders, and attendance for every meeting.
-- **Communication** — live group chat, a private supervisor–examiner channel, announcements and
+- **Communication** - live group chat, a private supervisor–examiner channel, announcements and
   notifications (in the app and by email).
-- **Archive and showcase** — finished projects are archived (read-only) and shown in a projects
+- **Archive and showcase** - finished projects are archived (read-only) and shown in a projects
   showcase with a description and a video.
-- **Dashboards and resources** — a start page for every role and a page of tutorials and tools.
-- **Responsive** — every page works from phone width to desktop.
+- **Dashboards and resources** - a start page for every role and a page of tutorials and tools.
+- **Responsive** - every page works from phone width to desktop.
 
 ---
 
@@ -126,7 +126,7 @@ to hand out `src/server/`, `database/`, `scripts/`, `uploads/` and `.env`.
 - **Git**: <https://git-scm.com>
 - A terminal: *Command Prompt*, *PowerShell* or *Git Bash* all work.
 
-### Step 1 — Get the code
+### Step 1 - Get the code
 
 ```bash
 git clone https://github.com/Yazed0071/GPMP.git
@@ -135,7 +135,7 @@ cd GPMP
 
 All the commands below are run in this `GPMP` folder (the one that contains `package.json`).
 
-### Step 2 — Install and configure (first time only)
+### Step 2 - Install and configure (first time only)
 
 Install everything (server and website together) and create your settings file:
 
@@ -156,12 +156,12 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 The other settings already match a default XAMPP installation (user `root`, empty password,
 database `gpmp`).
 
-### Step 3 — Start MySQL
+### Step 3 - Start MySQL
 
 Open the **XAMPP Control Panel** and click **Start** next to **MySQL**. It must stay green while you
 use GPMP. (Apache is not needed.)
 
-### Step 4 — Create the database (first time only)
+### Step 4 - Create the database (first time only)
 
 ```bash
 npm run db:setup
@@ -173,7 +173,7 @@ This creates the `gpmp` database with all tables and the demo data.
 > Run it again whenever you want to reset the demo, and after updating the code when
 > `database/schema.sql` changed. Take a backup first if you want to keep your data (see below).
 
-### Step 5 — Start GPMP (every time)
+### Step 5 - Start GPMP (every time)
 
 ```bash
 npm run dev
@@ -184,7 +184,7 @@ the Node.js server, lines starting with `[client]` from the website. You should 
 `GPMP API running at http://localhost:5000/api`, `Connected to MySQL database "gpmp"` and
 `Local: http://localhost:5173/`. Leave the terminal open; press `Ctrl + C` to stop both.
 
-### Step 6 — Open GPMP
+### Step 6 - Open GPMP
 
 Go to **<http://localhost:5173>** in your browser, click **Sign in** and use one of the
 [demo accounts](#5-demo-accounts).
@@ -264,11 +264,11 @@ Every demo account uses the same password: **`Gpmp@2026`**
 | supervisor3@gpmp.edu | Supervisor | Dr. Faisal Alghamdi | Marked **not available** (students cannot choose him) |
 | examiner1@gpmp.edu | Examiner | Dr. Hessa Aldosari | Examines Team Alpha and Team Legacy, staff chat |
 | examiner2@gpmp.edu | Examiner | Dr. Omar Alzahrani | Examines Team Beta |
-| student1@gpmp.edu, student2@gpmp.edu, student3@gpmp.edu | Student | Sara, Abdullah, Reem | **Team Alpha** — "Smart Campus Navigation App", In Progress, tasks in every status, chat, documents |
-| student4@gpmp.edu, student5@gpmp.edu, student6@gpmp.edu | Student | Yousef, Lama, Turki | **Team Beta** — "AI Plant Disease Detector", proposal pending |
-| student8@gpmp.edu, student9@gpmp.edu | Student | Nawaf, Jana | **Team Gamma** — no supervisor and no project yet (try choosing a supervisor and creating a project) |
+| student1@gpmp.edu, student2@gpmp.edu, student3@gpmp.edu | Student | Sara, Abdullah, Reem | **Team Alpha** - "Smart Campus Navigation App", In Progress, tasks in every status, chat, documents |
+| student4@gpmp.edu, student5@gpmp.edu, student6@gpmp.edu | Student | Yousef, Lama, Turki | **Team Beta** - "AI Plant Disease Detector", proposal pending |
+| student8@gpmp.edu, student9@gpmp.edu | Student | Nawaf, Jana | **Team Gamma** - no supervisor and no project yet (try choosing a supervisor and creating a project) |
 | student7@gpmp.edu | Student | Maha | Not in any group yet |
-| alumni1@gpmp.edu, alumni2@gpmp.edu | Student | Hamad, Dana | **Team Legacy** — archived 2024-2025 project, shown in the Projects Showcase |
+| alumni1@gpmp.edu, alumni2@gpmp.edu | Student | Hamad, Dana | **Team Legacy** - archived 2024-2025 project, shown in the Projects Showcase |
 
 All dates in the demo data are relative to the day you run `npm run db:setup`, so the demo always looks current.
 

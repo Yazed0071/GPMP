@@ -1,0 +1,54 @@
+{
+  "name": "gpmp",
+  "version": "1.0.0",
+  "description": "Graduation Project Management Platform (GPMP) for Al-Yamamah University: React client (src/client), Node.js/Express API (src/server) and MySQL.",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yazed0071/GPMP.git"
+  },
+  "type": "module",
+  "main": "src/server/server.js",
+  "scripts": {
+    "dev": "concurrently --names server,client --prefix-colors blue,green --kill-others-on-fail \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "nodemon src/server/server.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "node src/server/server.js",
+    "db:setup": "node database/setup.js",
+    "test:smoke": "node scripts/smoke-test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.4.0",
+    "mysql2": "^3.24.4",
+    "nodemailer": "^10.0.12",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.0",
+    "socket.io": "^4.8.4",
+    "socket.io-client": "^4.8.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.2.0",
+    "nodemon": "^3.1.14",
+    "vite": "^6.3.5"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src/server",
+      ".env"
+    ],
+    "ext": "js,json"
+  }
+}

@@ -1,2 +1,17 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Auto detect text files and store them with LF line endings in Git,
+# so the team gets the same files on Windows, macOS and Linux
+* text=auto eol=lf
+
+# Binary files: never change their line endings
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.mp4 binary
+*.webm binary
+*.mov binary
+*.zip binary
+*.woff binary
+*.woff2 binary

@@ -1,0 +1,158 @@
+/* Resources page (FR-17, UI fig 45). Every class starts with "res-". */
+
+/* ----- Category chips + search ----- */
+.res-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+}
+.res-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.res-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--gray-700);
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.res-chip:hover {
+  border-color: var(--gray-300);
+  background: var(--gray-50);
+}
+.res-chip-active,
+.res-chip-active:hover {
+  border-color: var(--navy-900);
+  background: var(--navy-900);
+  color: #fff;
+}
+.res-chip-count {
+  min-width: 20px;
+  padding: 0 0.4rem;
+  border-radius: var(--radius-full);
+  background: var(--gray-100);
+  color: var(--gray-600);
+  font-size: 0.72rem;
+  text-align: center;
+}
+.res-chip-active .res-chip-count {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+.res-search {
+  flex: 0 1 300px;
+  min-width: 220px;
+}
+
+/* ----- Resource cards ----- */
+.res-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr));
+  gap: 1.25rem;
+}
+.res-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.res-card:hover {
+  box-shadow: 0 2px 4px rgba(15, 31, 61, 0.05), 0 12px 28px rgba(15, 31, 61, 0.1);
+  transform: translateY(-2px);
+}
+.res-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.res-card .res-tile {
+  width: 52px;
+  height: 52px;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.res-card-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+.res-delete:hover {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+.res-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.res-desc {
+  display: -webkit-box;
+  flex: 1;
+  margin: 0 0 1rem;
+  overflow: hidden;
+  color: var(--gray-600);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.res-desc-empty {
+  color: var(--gray-400);
+  font-style: italic;
+}
+.res-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-border);
+}
+.res-host {
+  flex: 1;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+.res-open {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--teal-600);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+/* ----- Phones ----- */
+@media (max-width: 640px) {
+  .res-search {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .res-card {
+    padding: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .res-card:hover {
+    transform: none;
+  }
+}

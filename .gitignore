@@ -1,0 +1,31 @@
+# Git ignore rules for the whole GPMP project.
+
+# Installed packages (re-created with "npm install")
+node_modules/
+
+# Private settings (passwords, secrets) - commit only .env.example
+.env
+.env.local
+.env.*.local
+
+# Files uploaded by users (the empty folder is kept through uploads/.gitkeep)
+uploads/*
+!uploads/.gitkeep
+
+# Production build of the React client (re-created with "npm run build")
+dist/
+
+# Database and upload backups (NFR-5, see the README) - they contain private data
+backups/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

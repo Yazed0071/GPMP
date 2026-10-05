@@ -1,0 +1,296 @@
+/* ==========================================================================
+   Attendance (FR-15, UC14) - every class starts with "att-".
+   Used by AttendancePage and the components in components/attendance/.
+   ========================================================================== */
+
+/* ----- Toolbar: group picker + tabs ----- */
+.att-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.att-toolbar .group-select {
+  flex: 1 1 320px;
+  max-width: 440px;
+}
+.att-toolbar .tabs {
+  margin-bottom: 0;
+}
+
+.att-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.att-column > .card {
+  margin-bottom: 0;
+}
+.att-card-padding {
+  padding: 1.25rem;
+}
+
+/* ----- Session rows (staff list and the student's records) ----- */
+.att-sessions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.att-session {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.25rem;
+}
+.att-session + .att-session {
+  border-top: 1px solid var(--color-border);
+}
+.att-session-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.att-session-text strong {
+  color: var(--color-heading);
+  overflow-wrap: anywhere;
+}
+.att-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+/* ----- Take attendance ----- */
+.att-take-header {
+  margin-bottom: 1.25rem;
+}
+.att-take-header .link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+.att-take-header h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.4rem;
+}
+.att-take-header .meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.att-students {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.att-student {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 0.85rem 1.25rem;
+  transition: background var(--transition);
+}
+.att-student + .att-student {
+  border-top: 1px solid var(--color-border);
+}
+.att-student-changed {
+  background: #fffbeb;
+}
+.att-student-text {
+  display: flex;
+  flex: 1 1 180px;
+  flex-direction: column;
+  min-width: 0;
+}
+.att-student-text strong {
+  color: var(--color-heading);
+}
+
+/* The four status buttons of one student (a segmented control) */
+.att-status-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.att-status {
+  min-width: 78px;
+  padding: 0.42rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: #fff;
+  color: var(--gray-600);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.att-status:hover:not(:disabled) {
+  border-color: var(--gray-400);
+  color: var(--color-heading);
+}
+.att-status:focus-visible {
+  outline: 2px solid var(--teal-500);
+  outline-offset: 2px;
+}
+.att-status:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.att-status-present.active {
+  border-color: var(--color-success);
+  background: var(--color-success);
+  color: #fff;
+}
+.att-status-absent.active {
+  border-color: var(--color-danger);
+  background: var(--color-danger);
+  color: #fff;
+}
+.att-status-late.active {
+  border-color: var(--color-warning);
+  background: var(--color-warning);
+  color: #fff;
+}
+.att-status-excused.active {
+  border-color: var(--color-info);
+  background: var(--color-info);
+  color: #fff;
+}
+.att-status.active:disabled {
+  opacity: 0.85;
+}
+
+.att-take-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 1.25rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--gray-50);
+}
+.att-take-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* ----- Summary table ----- */
+.att-person {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 180px;
+}
+.att-person strong {
+  color: var(--color-heading);
+}
+.att-rate-cell {
+  min-width: 160px;
+}
+.att-note {
+  margin: 0;
+  padding: 0.8rem 1.25rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+/* ----- Student view ----- */
+.att-me-overview {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+  margin-bottom: 1.25rem;
+}
+.att-me-overview > .card {
+  margin-bottom: 0;
+}
+.att-rate-card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
+}
+.att-rate-card .att-note {
+  padding: 0;
+}
+.att-rate-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  border: 12px solid #e8edf3;
+  border-radius: 50%;
+  text-align: center;
+}
+.att-rate-empty strong {
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+}
+.att-rate-empty span {
+  margin-top: 0.25rem;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+}
+.att-me-stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 0;
+}
+
+/* ----- Responsive (NFR-13) ----- */
+@media (max-width: 900px) {
+  .att-me-overview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .att-session {
+    flex-wrap: wrap;
+    padding: 0.85rem 1rem;
+  }
+  .att-session-type {
+    display: none;
+  }
+  .att-student {
+    padding: 0.85rem 1rem;
+  }
+  .att-status-group {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+  }
+  .att-status {
+    min-width: 0;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.78rem;
+  }
+  .att-take-footer {
+    padding: 0.85rem 1rem;
+  }
+  .att-take-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .att-note {
+    padding: 0.75rem 1rem;
+  }
+}

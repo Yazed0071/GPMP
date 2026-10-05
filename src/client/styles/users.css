@@ -1,0 +1,247 @@
+/* ==========================================================================
+   User management styles: the users page and its modals. Every class starts with "users-".
+   global.css is loaded first (main.jsx), so this file wins ties. Rules that change a global
+   class (e.g. .table td) also use a more specific selector such as ".table.users-table td".
+   ========================================================================== */
+
+/* ----- Filters above the table ----- */
+.users-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.users-toolbar .tabs {
+  overflow-x: auto; /* the role tabs scroll sideways on narrow screens */
+}
+.users-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.users-search {
+  flex: 1 1 260px;
+}
+.users-status-filter {
+  flex: 0 1 200px;
+}
+.users-card .users-count {
+  margin: 0;
+  padding: 0.6rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--gray-50);
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+/* ----- Table cells ----- */
+.users-person {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 220px;
+}
+.users-person-text {
+  min-width: 0;
+}
+.users-person-text strong {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-heading);
+}
+.users-person-text > span {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+.badge.users-you {
+  font-size: 0.68rem;
+}
+.users-details {
+  min-width: 170px;
+  font-size: 0.875rem;
+}
+.users-details .meta {
+  margin-top: 0.15rem;
+}
+.users-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.table.users-table th.users-actions-head {
+  text-align: right;
+}
+.users-actions {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+.btn.users-deactivate {
+  color: var(--color-danger);
+}
+.btn.users-deactivate:hover {
+  background: var(--color-danger-soft);
+  color: #b91c1c;
+}
+.btn.users-activate {
+  color: var(--color-success);
+}
+.btn.users-activate:hover {
+  background: var(--color-success-soft);
+  color: #15803d;
+}
+/* Inactive accounts look faded */
+.users-row-inactive .users-person,
+.users-row-inactive .users-details {
+  opacity: 0.6;
+}
+
+/* ----- Add / edit user modal ----- */
+.users-role-picker {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.users-role-picker legend {
+  margin-bottom: 0.4rem;
+  padding: 0;
+}
+.users-role-options {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+.users-role-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--gray-50);
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
+}
+.users-role-option:hover {
+  border-color: var(--gray-300);
+}
+.users-role-option:focus-within {
+  outline: 2px solid var(--teal-500);
+  outline-offset: 2px;
+}
+.users-role-option.users-role-option-active {
+  border-color: var(--teal-500);
+  background: var(--teal-50);
+  color: var(--teal-600);
+}
+.users-role-name {
+  color: var(--color-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+.users-role-hint {
+  color: var(--color-muted);
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.users-role-fixed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--gray-50);
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+.checkbox.users-available {
+  min-height: 42px;
+}
+
+/* Name + email of the user at the top of the "Set a new password" modal */
+.users-modal-person {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.users-modal-person strong {
+  display: block;
+  color: var(--color-heading);
+}
+.users-modal-person span {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+/* ----- Responsive (NFR-13) ----- */
+@media (max-width: 640px) {
+  .users-role-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .users-status-filter {
+    flex: 1 1 100%;
+  }
+}
+
+/* Phones and small tablets: each table row becomes a small card */
+@media (max-width: 760px) {
+  .table.users-table thead {
+    display: none;
+  }
+  .table.users-table,
+  .table.users-table tbody,
+  .table.users-table tr,
+  .table.users-table td {
+    display: block;
+    width: 100%;
+  }
+  .table.users-table tr {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .table.users-table tbody tr:last-child {
+    border-bottom: none;
+  }
+  .table.users-table td {
+    padding: 0.3rem 0;
+    border: none;
+  }
+  /* Small caption above each value, taken from data-label="..." */
+  .table.users-table td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.15rem;
+    color: var(--gray-400);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .table.users-table td[data-label='User']::before {
+    display: none;
+  }
+  .table.users-table .actions-cell {
+    padding-top: 0.6rem;
+    text-align: left;
+    white-space: normal;
+  }
+  .users-person,
+  .users-details {
+    min-width: 0;
+  }
+  .users-actions {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
